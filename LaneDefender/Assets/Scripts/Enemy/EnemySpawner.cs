@@ -34,7 +34,7 @@ namespace LaneDefender
         /// <returns>Coroutine.</returns>
         private IEnumerator SpawnRoutine(GameObject[] enemyPrefabs, float spawnDelay)
         {
-            GameObject GetRandomPrefab(GameObject[] prefabs)
+            static GameObject GetRandomPrefab(GameObject[] prefabs)
             {
                 int randomIndex = Random.Range(0, prefabs.Length);
                 return prefabs[randomIndex];
@@ -59,6 +59,14 @@ namespace LaneDefender
                 Instantiate(GetRandomPrefab(enemyPrefabs), spawnPos, Quaternion.identity);
                 yield return new WaitForSeconds(spawnDelay);
             }
+        }
+
+        /// <summary>
+        /// Stops the spawner from spawning more monsters.
+        /// </summary>
+        public void StopSpawning()
+        {
+            isSpawning = false;
         }
     }
 }
