@@ -163,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 17069997}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9299269, y: -0.80868495, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: fc65328a-0a71-410d-881d-79c724894d2f
+  m_DefaultActionMap: Meta
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &639338810
@@ -3460,7 +3460,7 @@ Transform:
   m_GameObject: {fileID: 1228720106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.5, y: -1.9891, z: -0.0011310652}
+  m_LocalPosition: {x: -10, y: -1.9891, z: -0.0011310652}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4697,6 +4697,18 @@ MonoBehaviour:
       - m_Target: {fileID: 467261308}
         m_TargetAssemblyTypeName: LaneDefender.Score.ScoreManager, Assembly-CSharp
         m_MethodName: SaveHighScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 695667414}
+        m_TargetAssemblyTypeName: LaneDefender.EnemySpawner, Assembly-CSharp
+        m_MethodName: StopSpawning
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

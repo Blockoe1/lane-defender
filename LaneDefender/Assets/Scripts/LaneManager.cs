@@ -32,20 +32,13 @@ namespace LaneDefender
         /// </summary>
         private void Awake()
         {
-            if (lanes != null && lanes != laneHeights)
-            {
-                Debug.Log("Multiple LaneManagers found.");
-                return;
-            }
-            else
-            {
-                // Ensures the lanes are ordered by their y position, with the lowest lane being first.
-                lanes = laneHeights.OrderBy(item => item).ToArray();
-            }
+            // The most recent LaneManager to spawn will have their lanes be used by the game.
+            // Ensures the lanes are ordered by their y position, with the lowest lane being first.
+            lanes = laneHeights.OrderBy(item => item).ToArray();
         }
 
         /// <summary>
-        /// Reste the lanes reference when this object is destroyed.
+        /// Reset the lanes reference when this object is destroyed.
         /// </summary>
         private void OnDestroy()
         {
