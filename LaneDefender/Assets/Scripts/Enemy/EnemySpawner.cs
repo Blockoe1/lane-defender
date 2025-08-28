@@ -64,6 +64,7 @@ namespace LaneDefender
         /// <summary>
         /// Stops the spawner from spawning more monsters.
         /// </summary>
+        [ContextMenu("Stop Spawning")]
         public void StopSpawning()
         {
             isSpawning = false;

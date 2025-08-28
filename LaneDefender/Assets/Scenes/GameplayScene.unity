@@ -2369,7 +2369,6 @@ Transform:
   m_Children:
   - {fileID: 1378836942}
   - {fileID: 813543829}
-  - {fileID: 1997918999}
   m_Father: {fileID: 1865557360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767994629
@@ -3799,10 +3798,11 @@ Transform:
   m_GameObject: {fileID: 1378836941}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1997918999}
   m_Father: {fileID: 742926260}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1378836943
@@ -3886,7 +3886,7 @@ Transform:
   m_GameObject: {fileID: 1524569350}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0, z: 0}
+  m_LocalPosition: {x: 0.475, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4498,6 +4498,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpSpeed: 20
+  graphicsTransform: {fileID: 742926260}
+  maxAngle: 45
+  smoothTime: 0.1
 --- !u!61 &1865557362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4744,7 +4747,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 1
 --- !u!1 &1885907983
 GameObject:
   m_ObjectHideFlags: 0
@@ -4801,13 +4804,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997918998}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.374, y: 0.124, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1500001, y: 0.3500002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1524569351}
-  m_Father: {fileID: 742926260}
+  m_Father: {fileID: 1378836942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1997919000
 SpriteRenderer:
