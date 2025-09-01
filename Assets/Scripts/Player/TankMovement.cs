@@ -109,7 +109,7 @@ namespace LaneDefender.Movement
         /// <returns></returns>
         private IEnumerator LerpRoutine(Vector2 targetPosition)
         {
-            Debug.Log("Lerping");
+            //Debug.Log("Lerping");
             // Use a vector pointing from our current position to our target position to caluclate which direction or oubject rotates in.
             Vector2 toTargetVector = targetPosition - (Vector2)transform.position;
             int angleDir = Mathf.RoundToInt(Mathf.Abs(toTargetVector.y) / toTargetVector.y);
