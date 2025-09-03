@@ -34,6 +34,18 @@ namespace LaneDefender.Movement
         private Coroutine lerpCoroutine;
         private int currentLaneIndex;
 
+        #region Component References
+        [SerializeReference, HideInInspector] private Rigidbody2D rb;
+        /// <summary>
+        /// Get components on reset
+        /// </summary>
+        [ContextMenu("Reset Component References")]
+        private void Reset()
+        {
+            rb = GetComponent<Rigidbody2D>();   
+        }
+        #endregion
+
         /// <summary>
         /// Setup input on awake.
         /// </summary>
@@ -99,7 +111,7 @@ namespace LaneDefender.Movement
                 lerpCoroutine = null;
             }
 
-            Vector2 targetPos = new Vector2(transform.position.x, LaneManager.Lanes[currentLaneIndex]);
+            Vector2 targetPos = new Vector2(rb.position.x, LaneManager.Lanes[currentLaneIndex]);
             lerpCoroutine = StartCoroutine(LerpRoutine(targetPos));
         }
         /// <summary>
@@ -111,7 +123,7 @@ namespace LaneDefender.Movement
         {
             //Debug.Log("Lerping");
             // Use a vector pointing from our current position to our target position to caluclate which direction or oubject rotates in.
-            Vector2 toTargetVector = targetPosition - (Vector2)transform.position;
+            Vector2 toTargetVector = targetPosition - (Vector2)rb.position;
             int angleDir = Mathf.RoundToInt(Mathf.Abs(toTargetVector.y) / toTargetVector.y);
 
             float startingDist = toTargetVector.magnitude;
@@ -122,7 +134,7 @@ namespace LaneDefender.Movement
                 Vector3 angles = graphicsTransform.eulerAngles;
                 // Find the normalized distance along our object's movement path we are currently at.  We'll
                 // use this to LERP our angle.
-                float normalizedDist = Vector2.Distance(transform.position, targetPosition) / startingDist;
+                float normalizedDist = Vector2.Distance(rb.position, targetPosition) / startingDist;
                 //Debug.Log(normalizedDist);
                 // Calculate the target angle we should be at at this point based on our distance on the path.
                 float targetAngle = Mathf.Lerp(0, maxAngle * angleDir, normalizedDist);
@@ -134,18 +146,18 @@ namespace LaneDefender.Movement
             }
 
 
-            while (Vector2.Distance(transform.position, targetPosition) > LERP_SNAP_RANGE)
+            while (Vector2.Distance(rb.position, targetPosition) > LERP_SNAP_RANGE)
             {
                 // Continually LERP our position towards our target position
                 float step = 1 - Mathf.Pow(0.5f, lerpSpeed * Time.deltaTime);
-                transform.position = Vector2.Lerp(transform.position, targetPosition, step);
+                rb.position = Vector2.Lerp(rb.position, targetPosition, step);
 
                 AnimateMovement();
 
                 yield return null;
             }
             // Snap to our target posittion and rotation once our LERP is done.
-            transform.position = targetPosition;
+            rb.MovePosition(targetPosition);
             Vector3 angles = graphicsTransform.eulerAngles;
             angles.z = 0;
             graphicsTransform.eulerAngles = angles;
