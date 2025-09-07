@@ -4501,6 +4501,7 @@ MonoBehaviour:
   graphicsTransform: {fileID: 742926260}
   maxAngle: 45
   smoothTime: 0.1
+  rb: {fileID: 1865557366}
 --- !u!61 &1865557362
 BoxCollider2D:
   m_ObjectHideFlags: 0
