@@ -35,7 +35,7 @@ namespace LaneDefender.Movement
         private int currentLaneIndex;
 
         #region Component References
-        [SerializeReference, HideInInspector] private Rigidbody2D rb;
+        [SerializeReference] private Rigidbody2D rb;
         /// <summary>
         /// Get components on reset
         /// </summary>
